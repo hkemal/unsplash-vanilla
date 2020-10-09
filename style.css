@@ -1,0 +1,44 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+#navbar-unsplash {
+  background-color: black;
+  width: 100%;
+  height: 120px;
+  display: flex;
+  align-items: center;
+}
+#nav-logo {
+  margin-left: 50px;
+}
+
+.spacer {
+  flex: 1;
+}
+
+#nav-text {
+  color: white;
+  font-size: 36px;
+  line-height: 42px;
+  font-family: 'Roboto', sans-serif;
+  margin-right: 122px;
+}
+
+#photo-container {
+  width: 100%;
+}
+
+#photos {
+  margin: 50px 10rem 0 10rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items:flex-start;
+  justify-content: center;
+}
+
+img {
+  max-width: 300px;
+  margin: 0 1rem 1rem 0;
+}
