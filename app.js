@@ -1,4 +1,4 @@
-const $photos = document.querySelector('#photos'); // document.getElementById('photos');
+let $photos, $modal, $closeButton;
 
 function addPhoto(item) {
   const $img = document.createElement('img');
@@ -8,15 +8,18 @@ function addPhoto(item) {
 }
 
 function init() {
+  $photos = document.querySelector('#photos'); // document.getElementById('photos');
+  $modal = document.querySelector('#modal-container');
+  $closeButton = document.querySelector('#close-button');
+
   data.results.forEach(function iterateResults(item) {    
     addPhoto(item);
   });
+
+  $closeButton.onclick = function hideModal() {
+    $modal.style.display = "none";
+  };
 }
-
-document.addEventListener('DOMContentLoaded', init);
-
-const $modal = document.querySelector('#modal-container');
-const $closeButton = document.querySelector('#close-button');
 
 function imgOnClick(item) {
   $modal.style.display = 'flex';
@@ -30,9 +33,7 @@ function imgOnClick(item) {
   $selectedPhoto.src = item.urls.regular;
 }
 
-$closeButton.onclick = function hideModal() {
-  $modal.style.display = "none";
-}
+document.addEventListener('DOMContentLoaded', init);
 
 const data = {
   "total": 13391,
