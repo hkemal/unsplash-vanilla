@@ -1,4 +1,5 @@
 let $photos, $modal, $closeButton;
+let page = 1;
 
 function addPhoto(item) {
   const $img = document.createElement('img');
@@ -7,18 +8,31 @@ function addPhoto(item) {
   $photos.appendChild($img);
 }
 
+function fetchData(page = 1) {
+  fetch(`https://api.unsplash.com/photos/?client_id=WI8xaUvGH0M6Cml_ZizBvCzmBQw_GabYEoZAKhAPMSw&page=${page}`)
+    .then(r => r.json())
+    .then(data => {
+      data.forEach(function iterateResults(item) {    
+        addPhoto(item);
+      });
+    });
+}
+
+function loadMore() {
+  // load next page
+  fetchData(++page);
+}
+
 function init() {
   $photos = document.querySelector('#photos'); // document.getElementById('photos');
   $modal = document.querySelector('#modal-container');
   $closeButton = document.querySelector('#close-button');
 
-  data.results.forEach(function iterateResults(item) {    
-    addPhoto(item);
-  });
-
   $closeButton.onclick = function hideModal() {
     $modal.style.display = "none";
   };
+
+  fetchData();
 }
 
 function imgOnClick(item) {
