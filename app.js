@@ -1,21 +1,38 @@
 const $photos = document.querySelector('#photos'); // document.getElementById('photos');
 
-function addPhoto(src) {
+function addPhoto(item) {
   const $img = document.createElement('img');
-  $img.src = src;
+  $img.src = item.urls.small;
+  $img.onclick = () => imgOnClick(item);
   $photos.appendChild($img);
-  
 }
 
 function init() {
   data.results.forEach(function iterateResults(item) {    
-    addPhoto(item.urls.small);
+    addPhoto(item);
   });
 }
 
 document.addEventListener('DOMContentLoaded', init);
 
+const $modal = document.querySelector('#modal-container');
+const $closeButton = document.querySelector('#close-button');
 
+function imgOnClick(item) {
+  $modal.style.display = 'flex';
+  const $pp = document.querySelector('#avatar');
+  $pp.src = item.user.profile_image.medium;
+  const $name = document.querySelector('#name');
+  $name.innerHTML = item.user.name;
+  const $username = document.querySelector('#username');
+  $username.innerHTML = '@' + item.user.username;
+  const $selectedPhoto = document.querySelector('#selected-photo > img');
+  $selectedPhoto.src = item.urls.regular;
+}
+
+$closeButton.onclick = function hideModal() {
+  $modal.style.display = "none";
+}
 
 const data = {
   "total": 13391,
