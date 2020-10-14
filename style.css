@@ -119,11 +119,7 @@ body {
   border: none;
   cursor: pointer;
 }
-button {
-  height: 50px;
-  width: 150px;
-  margin: 0 auto;
-}
+
 
 #button-container {
   display: flex;
