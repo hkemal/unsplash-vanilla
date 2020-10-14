@@ -7,6 +7,7 @@
   <title>Hasan's Unsplash</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -38,9 +39,15 @@
         </defs>
       </svg>
     </div>
-    <div class="spacer"></div>
-    <div id="nav-text">Hasan's Unsplash</div>
-    <div class="spacer"></div>
+    <form id="search-form">
+      <input name="query" type="text" placeholder="Query" id="search-text">
+      <select name="" id="navbar-collections" >
+        <option value=""></option>Collections</option>
+        <option value="">Istanbul</option>
+        <option value="">Istanbul</option>
+      </select>
+      <button type="submit" id="search-button">SEARCH</button>
+    </form>
   </nav>
 
   <div id="modal-container">
@@ -73,7 +80,7 @@
     </div>
     <div id = "button-container">
       <div class="spacer"></div>
-      <button type="button" onclick="loadMore()">Load More Pictures!</button>
+      <button type="button" onclick="loadMore();" id="load-button">Load More Pictures!</button>
       <div class="spacer"></div>
     </div>
     
