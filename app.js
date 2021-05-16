@@ -12,7 +12,7 @@ function addPhoto(item) {
 }
 
 function fetchData(page = 1) {
-  fetch(`https://api.unsplash.com/photos/?client_id=yourUnsplahClientId&page=${page}`)
+  fetch(`https://api.unsplash.com/photos/?client_id=${yourUnsplahClientId}&page=${page}`)
     .then(r => r.json())
     .then(data => {
       data.forEach(function iterateResults(item) {
@@ -25,7 +25,7 @@ function searchPictures(page = 1) {
   let searchText = document.getElementById('search-text').value;
   let e = document.getElementById('select');
   collectionId = e.options[e.selectedIndex].value;
-  fetch(`https://api.unsplash.com/search/photos?page=1&query=${searchText}&collections=${collectionId}&client_id=yourUnsplahClientId&page=${page}`)
+  fetch(`https://api.unsplash.com/search/photos?page=1&query=${searchText}&collections=${collectionId}&client_id=${yourUnsplahClientId}&page=${page}`)
     .then(r => r.json())
     .then(data => {
       data.results.forEach(function iterateResults(item) {
@@ -64,7 +64,7 @@ function loadMore() {
 }
 
 function collectionState() {
-  fetch(`https://api.unsplash.com/collections?page=3&client_id=yourUnsplahClientId`)
+  fetch(`https://api.unsplash.com/collections?page=3&client_id=${yourUnsplahClientId}`)
     .then(r => r.json())
     .then(data => {
       data.forEach(function iterateCollection(item) {
